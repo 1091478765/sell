@@ -1,23 +1,26 @@
 package com.liulu.sell.dataobject;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
+@DynamicUpdate
 @Data
 public class ProductInfo {
 
     @Id
     private String productId;
 
-    private String ProductName;
+    private String productName;
 
-    private String ProductPrice;
+    private BigDecimal productPrice;
 
     /**库存*/
-    private String productStock;
+    private Integer productStock;
 
     private String productDescription;
 
