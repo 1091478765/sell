@@ -42,7 +42,7 @@ public class BuyerProductController {
 
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
 
-        List<Integer> categotyTypeList = new ArrayList<Integer>();
+        List<Integer>  categotyTypeList = new ArrayList<Integer>();
 
         for (ProductInfo productInfo : productInfoList){
             categotyTypeList.add(productInfo.getCategoryType());
