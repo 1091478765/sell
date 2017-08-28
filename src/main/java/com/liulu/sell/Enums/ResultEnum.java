@@ -10,22 +10,27 @@ public enum ResultEnum {
 
     SUCCESS("0000","处理成功")
 
+
+
+    //异常
+    ,PRODUCT_NO_FOUND("1000","商品不存在")
+
     ;
     private String code;
 
-    private String state;
+    private String msg;
 
-    ResultEnum(String code, String state) {
+    ResultEnum(String code, String msg) {
         code = code;
-        this.state = state;
+        this.msg = msg;
     }
 
     public String getCode() {
         return code;
     }
 
-    public String getState() {
-        return state;
+    public String getMsg() {
+        return msg;
     }
 
     public static ResultEnum getEnumByKey(String key){

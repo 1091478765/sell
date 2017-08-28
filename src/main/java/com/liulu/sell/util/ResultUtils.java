@@ -12,7 +12,7 @@ public class ResultUtils {
     public static ResultBody getSuccessResult(ResultEnum resultEnum,Object data){
         ResultBody body = new ResultBody();
         body.setCode(resultEnum.getCode());
-        body.setMsg(resultEnum.getState());
+        body.setMsg(resultEnum.getMsg());
         body.setData(data);
         return body;
     }
