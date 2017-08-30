@@ -6,6 +6,7 @@ import com.liulu.sell.exception.SellException;
 import com.liulu.sell.form.OrderForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ import javax.validation.Valid;
 public class BuyerOrderController {
 
     //创建订单
-    public ResultBody<? extends Object> create(@Valid OrderForm orderForm, BindingResult bindingResult){
+    public ResultBody<? extends Object> create(@Valid OrderForm orderForm, BindingResult bindingResult) throws Exception{
         if(bindingResult.hasErrors()){
             throw new SellException(ResultEnum.PARAM_ERROR.getCode()
             ,bindingResult.getFieldError().getDefaultMessage());

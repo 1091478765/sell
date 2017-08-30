@@ -24,6 +24,11 @@ public enum ResultEnum {
     ,ORDER_DETAIL_EMPTY("1006","订单无商品")
     ,ORDER_ERROR_PAY_STATE("1007","支付状态有误")
     ,ORDER_PAY_ERROR("1008","支付状态有误")
+
+
+
+
+    ,EXCEPON("9999","系统异常")
     ;
     private String code;
 

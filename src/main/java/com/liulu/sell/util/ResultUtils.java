@@ -9,11 +9,42 @@ import com.liulu.sell.ResultVO.ResultBody;
  */
 public class ResultUtils {
 
+    /**
+     * 获取成功返回
+     * @param resultEnum
+     * @param data
+     * @return
+     */
     public static ResultBody getSuccessResult(ResultEnum resultEnum,Object data){
         ResultBody body = new ResultBody();
         body.setCode(resultEnum.getCode());
         body.setMsg(resultEnum.getMsg());
         body.setData(data);
+        return body;
+    }
+
+    /**
+     * 获取错误返回
+     * @param resultEnum
+     * @return
+     */
+    public static ResultBody getErrorResult (ResultEnum resultEnum){
+        ResultBody body =  new ResultBody();
+        body.setCode(resultEnum.getCode());
+        body.setMsg(resultEnum.getMsg());
+        return body;
+    }
+
+    /**
+     * 获取错误返回
+     * @param code
+     * @param msg
+     * @return
+     */
+    public static ResultBody getErrorResult(String code,String msg){
+        ResultBody body =  new ResultBody();
+        body.setCode(code);
+        body.setMsg(msg);
         return body;
     }
 }
