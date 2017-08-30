@@ -15,7 +15,7 @@ public interface OrderService {
 
     OrderDTO findOne(String orderId);
 
-    Page<OrderDTO> findLis(String buyerOpenid, Pageable pageable);
+    Page<OrderDTO> findList(String buyerOpenid, Pageable pageable);
 
     OrderDTO cancel(OrderDTO orderDTO);
 

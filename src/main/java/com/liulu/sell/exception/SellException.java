@@ -28,4 +28,9 @@ public class SellException extends RuntimeException{
         this.code = code;
         this.data = data;
     }
+
+    public SellException (String code,String message){
+        super(message);
+        this.code = code;
+    }
 }
