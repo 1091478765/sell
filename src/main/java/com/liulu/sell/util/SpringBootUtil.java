@@ -2,6 +2,12 @@ package com.liulu.sell.util;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.request.ServletWebRequest;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,5 +22,28 @@ public class SpringBootUtil {
         return  (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
     }
 
-    public
+    /**
+     * 获取HttpServletReuqest对象
+     * @return
+     */
+    public static HttpServletRequest getHttpServletRequest(){
+        return getServletRequestAttributes().getRequest();
+    }
+
+    /**
+     * 获取HttpSession对象
+     * @return
+     */
+    public static HttpSession getHttpSession(){
+        return getHttpServletRequest().getSession();
+    }
+
+    /**
+     * 获取HttpServletResponse对象
+     * @return
+     */
+    public static HttpServletResponse getHttpServletResponse(){
+        return ((ServletWebRequest)RequestContextHolder.getRequestAttributes()).getResponse();
+    }
+
 }
