@@ -27,7 +27,6 @@ public class BuyerOrderController {
             throw new SellException(ResultEnum.PARAM_ERROR.getCode()
             ,bindingResult.getFieldError().getDefaultMessage());
         }
-
         return null;
     }
 
