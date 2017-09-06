@@ -46,6 +46,14 @@ public class OrderServiceImpl implements OrderService {
     private OrderMasterRepository orderMasterRepository;
 
     @Override
+    public Page<OrderDTO> findList(Pageable pageable) {
+        Page<OrderMaster> page = orderMasterRepository.findAll(pageable);
+        List<OrderDTO> orderDTOS = OrderMaster2OrderDTOConverter.converter(page.getContent());
+        Page<OrderDTO> dtoPage = new PageImpl<OrderDTO>(orderDTOS,pageable,page.getTotalElements());
+        return dtoPage;
+    }
+
+    @Override
     @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
 
@@ -69,8 +77,8 @@ public class OrderServiceImpl implements OrderService {
 
         //写入订单
         OrderMaster orderMaster = new OrderMaster();
+        orderDTO.setOrderId(orderId);
         BeanUtils.copyProperties(orderDTO,orderMaster);
-        orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());

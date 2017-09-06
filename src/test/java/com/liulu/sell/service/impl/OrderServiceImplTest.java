@@ -56,7 +56,7 @@ public class OrderServiceImplTest {
     @Test
     public void findLis() throws Exception {
         PageRequest pageRequest = new PageRequest(0,2);
-        int a =  orderService.findList("1242134",pageRequest).getSize();
+        int a =  orderService.findList(pageRequest).getTotalPages();
         log.info((String.valueOf(a)));
     }
 
@@ -74,5 +74,6 @@ public class OrderServiceImplTest {
     public void paid() throws Exception {
         orderService.paid(orderService.findOne("150"));
     }
+
 
 }

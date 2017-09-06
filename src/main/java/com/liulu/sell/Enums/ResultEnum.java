@@ -12,6 +12,10 @@ public enum ResultEnum {
     ,PARAM_ERROR("0001","参数输入有误")
 
 
+    ,JSON_CONVERTER_ERROR("1002","json格式转换异常")
+
+
+
 
 
     //异常
@@ -49,7 +53,7 @@ public enum ResultEnum {
 
     public static ResultEnum getEnumByKey(String key){
         for (ResultEnum enums : ResultEnum.values()){
-            if (enums.code.equals(key)){
+            if (enums.getCode().equals(key)){
                 return enums;
             }
         }

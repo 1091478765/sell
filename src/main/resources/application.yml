@@ -13,6 +13,21 @@ spring:
     url: jdbc:mysql://192.168.223.129/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  freemarker:
+    enabled: true
+    cache: false
+    charset: utf-8
+    content-type: text/html
+    check-template-location: true
+  redis:
+    host: 192.168.223.129
+    port: 6379
 server:
   context-path: /sell
+  port: 8081
+
+
+
 
