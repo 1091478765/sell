@@ -10,6 +10,7 @@ public enum ResultEnum {
 
     SUCCESS("0000","处理成功")
     ,PARAM_ERROR("0001","参数输入有误")
+    ,LOGIN_TIMEOUT("0003","登录超时")
 
 
     ,JSON_CONVERTER_ERROR("1002","json格式转换异常")

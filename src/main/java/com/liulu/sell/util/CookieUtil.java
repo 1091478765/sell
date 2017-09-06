@@ -1,7 +1,12 @@
 package com.liulu.sell.util;
 
+import net.sf.json.JSONObject;
+
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by 刘璐
@@ -21,6 +26,24 @@ public class CookieUtil {
         cookie.setMaxAge(maxAge);
         //SpringBootUtil.getHttpServletResponse().addCookie(cookie);
         response.addCookie(cookie);
-        
+    }
+
+    /**
+     * 根据名称获取Cookie
+     * @param request
+     * @param name
+     * @return
+     */
+    public static Cookie getCookie(HttpServletRequest request,String name){
+        Cookie[] cookies = request.getCookies();
+        Map<String,Cookie> map = new HashMap<>();
+        for (Cookie cookie :cookies){
+            map.put(cookie.getName(),cookie);
+        }
+        if (map.containsKey(name)){
+            return map.get(name);
+        } else {
+            return null;
+        }
     }
 }
