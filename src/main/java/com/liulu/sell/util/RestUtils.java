@@ -41,6 +41,7 @@ public class RestUtils {
         return JSONObject.fromObject(sb.toString());
     }
 
+
     /**
      * 使用IoUtils工具获取传入数据
      *
@@ -75,6 +76,7 @@ public class RestUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        String a = "<?xml version=\"1.0\" encoding=\"GBK\"?><AIPG>";
         return JSONObject.fromObject(strParam);
     }
 }
